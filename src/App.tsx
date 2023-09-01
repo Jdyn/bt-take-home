@@ -9,22 +9,13 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "browse",
-        element: <Browse />,
-      },
-      {
-        path: "profile",
-        element: <Profile />,
-      },
+      { index: true, element: <Home /> },
+      { path: "browse", element: <Browse /> },
+      { path: "profile", element: <Profile /> },
     ],
   },
 ]);
 
-export default function App() {
-  return <RouterProvider router={router} />;
-}
+const App = () => <RouterProvider router={router} />;
+
+export default App;
