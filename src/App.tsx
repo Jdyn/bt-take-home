@@ -1,22 +1,30 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Container from "./components/Container";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Layout from "./components/Layout";
 import Home from "./views/Home";
-import NavigationBar from "./components/NavigationBar";
 import Browse from "./views/Browse";
 import Profile from "./views/Profile";
 
-export default function App() {
-  return (
-    <BrowserRouter>
-      <NavigationBar />
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "browse",
+        element: <Browse />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+    ],
+  },
+]);
 
-      <Container>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="browse" element={<Browse />} />
-          <Route path="profile" element={<Profile />} />
-        </Routes>
-      </Container>
-    </BrowserRouter>
-  );
+export default function App() {
+  return <RouterProvider router={router} />;
 }

@@ -1,6 +1,6 @@
 .root {
   background-color: #ef4444;
-
+	padding: 0px 24px;
   .body {
     display: flex;
     justify-content: space-between;
@@ -19,13 +19,13 @@
         height: 32px;
         display: flex;
         align-items: center;
-        
+
         padding: 0 16px;
         border-radius: 4px;
 
         color: rgb(255 255 255 / 50%);
         font-weight: 500;
-        
+
         &:global(.active) {
           background-color: rgb(255 255 255 / 10%);
         }
